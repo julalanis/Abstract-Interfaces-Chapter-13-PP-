@@ -1,5 +1,5 @@
 package mypackage;
-public class Customer{
+public abstract class Customer implements Comparable<Customer>{
     //named variables
     private String name;
     private int age;
@@ -35,10 +35,26 @@ public class Customer{
         this.age = age;
     }
 
-    //importanceLevel method
-    public String importanceLevel(){
-        return "Uncategorized";
+    //importanceLevel method is now abstract
+    public abstract String importanceLevel();
+    
+    
+    //compareTo methods for Name and Age of customer
+    public int compareName(Customer customerName) {
+    	if ((this.name).equals(customerName.getName())) {
+    		return 0;
+    	}
+    	else return 1;
     }
+    	
+    public int compareAge(Customer customerAge) {
+    		if(this.age > (customerAge.getAge())) {
+    			return 1;
+    		} else if (this.age < (customerAge.getAge())) {
+    			return -1;
+    		} else return 0;
+    		
+    	}
 
     //toString method
     public String toString(){
