@@ -1,5 +1,5 @@
 /** Student Name: Julie Alanis
- * Date Completed: 10/25/2024
+ * Date Completed: 11/30/2024
  * Project No.& Page No.: Chapter 13 PP Julie Alanis
  * Extra Credit: No
  * Project Description: 
@@ -11,106 +11,80 @@ import java.util.ArrayList;
 public class CustomerInfo {
     public static void main(String[] args) {
 
-        System.out.println("Created an ArrayList of six Customers by declaring and instantiating two Flight Customers, " + "\n" +
-                        "two Retail Customers and two Customer objects. Add the three different types of Customer objects " + "\n" +
-                        "to the Customer array." + "\n");
+        System.out.println("Create an Array List of Customer type. \nCreate six Customers by declaring and instantiating \nthree Flight Customers and three Retail Customer objects each." +
+        "\nAdd the six Customer objects to the Customer array list.\n");
 
         System.out.println("******************************************" + "\n");
 
-        System.out.println("In a for loop, print out the Customer list by printing out each element of the ArrayList " + "\n" +
-                           "and calling the importanceLevel method on each element." + "\n");
+        System.out.println("Print out the Customer Information in the array list as well as the importance level information" +
+        "\nby calling the importanceLevel method on the array list. This is done in a loop.\n");
 
-        //declare an ArrayList of Customers: 2 Customers, 2 Flight Customers, 2 Retail Customers
+        //declare an ArrayList of 6 Customers: 3 Flight and 3 Retail.
         ArrayList<Customer> customerList = new ArrayList<>();
-        Customer customer1 = new Customer();
-        Customer customer2 = new Customer("Julie", 30);
-        FlightCustomer flightCustomer1 = new FlightCustomer();
+        FlightCustomer flightCustomer1 = new FlightCustomer("Tato", 7, ((int)(Math.random() * 200)), 388.66);
         FlightCustomer flightCustomer2 = new FlightCustomer("Tato", 7, ((int)(Math.random() * 200)), 388.66);
-        RetailCustomer retailCustomer1 = new RetailCustomer();
-        RetailCustomer retailCustomer2 = new RetailCustomer("Riley", 6, 454.65, 2);
+        FlightCustomer flightCustomer3 = new FlightCustomer("Riley", 7, ((int)(Math.random() * 200)), 708.66);
+        RetailCustomer retailCustomer1 = new RetailCustomer("Julie", 30, 454.65, 2);
+        RetailCustomer retailCustomer2 = new RetailCustomer("Julie", 30, 120.00, 2);
+        RetailCustomer retailCustomer3 = new RetailCustomer("Leslie", 27, 650.50, 4);
 
         //add all objects to ArrayList
-        customerList.add(customer1);
-        customerList.add(customer2);
         customerList.add(flightCustomer1);
         customerList.add(flightCustomer2);
+        customerList.add(flightCustomer3);
         customerList.add(retailCustomer1);
         customerList.add(retailCustomer2);
-
-        //loop to print out each Customer object
-        for (int i = 0; i < customerList.size(); i++){
-            System.out.println(customerList.get(i));
-            System.out.println();
+        customerList.add(retailCustomer3);
+        
+        for (int i = 0; i < customerList.size(); i++) {
+        	System.out.println(customerList.get(i));
+        	System.out.println();
         }
 
-        System.out.println("In a for loop, change all Customer names to Customer plus a number by calling " + "\n" +
-                            "the setName method of the Customer class. Then display only the names by calling " + "\n" +
-                            "the getName method on each ArrayList element." + "\n");
-
-        //loop to set all Customer names to Customer# and print them
-        for (int j = 0; j < customerList.size(); j++){
-           customerList.get(j).setName("Customer" + (j + 1));
-           System.out.println(customerList.get(j).getName() + "\n");
-        }
-
-        System.out.println("Making changes: " + "\n" +
-                "If the customer is a FlightCustomer, change the ticket price to 2000. If they are a Retail Customer, " + "\n" +
-                "change the amount of total spent to 500 by using the instanceof operator to test what type of Customer " + "\n" +
-                "each array element is. This is done in a for loop. " + "\n");
-
-        for (int k = 0; k < customerList.size(); k++){
-            if (customerList.get(k) instanceof FlightCustomer){
-                ((FlightCustomer)customerList.get(k)).setTicketPrice(2000.00);
-            } else if (customerList.get(k) instanceof RetailCustomer){
-                ((RetailCustomer)customerList.get(k)).setTotalSpent(500.00);
-            }
-        }
-
-        System.out.println("That was done. Now call the getName method to display each Customer's name and call the " + "\n" +
-                "getTotalSpent method for Retail Customers and getTicketPrice for Flight Customers. " + "\n" +
-                "This is done in a for loop. ");
-
-        for (int l = 0; l < customerList.size(); l++){
-            if (customerList.get(l) instanceof RetailCustomer) {
-                System.out.println(customerList.get(l).getName());
-               System.out.println(((RetailCustomer) customerList.get(l)).getTotalSpent());
-            } else if (customerList.get(l) instanceof FlightCustomer){
-                System.out.println(customerList.get(l).getName());
-                System.out.println(((FlightCustomer) customerList.get(l)).getTicketPrice());
-            }
-            System.out.println();
-        }
-
-        System.out.println("Finally, display each customer's information by calling the toString method and the importanceLevel" + "\n" +
-                            "method for all the Customer elements. This is done in a for loop." + "\n");
-
-        for (int m = 0; m < customerList.size(); m++){
-            if (customerList.get(m) instanceof RetailCustomer) {
-                System.out.println(customerList.get(m).toString() + "\n");
-            } else if (customerList.get(m) instanceof FlightCustomer) {
-                System.out.println(customerList.get(m).toString() + "\n");
-            } else System.out.println(customerList.get(m).toString() + "\n");
-
-        }
-
-        System.out.println("Extra credit 1: Based on the importanceLevel of Customer, 200 seats should be divided into four categories: " + "\n" +
-                           "Seats 1-50 Gold ($1000+), 51-100 Silver ($500+), 101-150 Bronze ($250), 151-200 Regular (Anything below $250)." + "\n" +
-                           "Now assigning appropriate values to display this assignment using flightCustomer3 object." + "\n");
-
-        flightCustomer1.setTicketPrice(1000);
-        System.out.println(flightCustomer1 + "\n");
-
-        flightCustomer1.setTicketPrice(550.99);
-        System.out.println(flightCustomer1 + "\n");
-
-        flightCustomer1.setTicketPrice(255.99);
-        System.out.println(flightCustomer1 + "\n");
-
-        flightCustomer1.setTicketPrice(100.99);
-        System.out.println(flightCustomer1 + "\n");
-
-        System.out.println("That is enough Customer information for today!" + "\n" +
-                            "Fun fact, did you know Tato and Riley are my cats' names?");
+        System.out.println("All of the following output is done in an if-else statement\n" +
+        "because comparisons are made by calling the compareTo method. This is to compare the array list elements\n" +
+        "using the get method with each element's index. Now, compare the two Retail Customers named Julie, both are 30 years old\n" +
+        "but with different total-spent amounts. Here is the result:\n");
+        
+        if ( (retailCustomer1.compareTo(retailCustomer2) == 1)) {
+        	System.out.println("The second Julie spent less.\n");
+        } else if ( (retailCustomer1.compareTo(retailCustomer2) == -1)){
+        	System.out.println("The second Julie spent more.\n");
+        } else System.out.println("They are the same.\n");
+      
+        System.out.println("Now compare the two Flight Customers Tato. They have the same name, age and ticket price.\n" +
+        "They should be the same when compared. Here is the result: \n");
+        
+        if ( (flightCustomer1.compareTo(flightCustomer2) == 1)) {
+        	System.out.println("The first Tato's ticket costs more.\n");
+        } else if ( (flightCustomer1.compareTo(flightCustomer2) == -1)){
+        	System.out.println("The first Tato's ticket costs less.\n");
+        } else System.out.println("They are the same.\n");
+        
+        System.out.println("Now compare the first Julie and Leslie. Since everything is different, they are compared based on names.\n" +
+        "Julie should come first. Here is the result: \n");
+        
+        if ( (retailCustomer1.compareName(retailCustomer3) == 1)) {
+        	System.out.println("Julie is in front of Leslie.\n");
+        } else System.out.println("They are the same.\n");
+        
+        System.out.println("Now create a new Retail Customer named Leslie, only with a different age: 29. Print out the new Retail Customer you just created.\n");
+        RetailCustomer retailCustomer4 = new RetailCustomer("Leslie", 29, 650.50, 4);
+        customerList.add(retailCustomer4);
+        
+        System.out.println(retailCustomer4.toString());
+        System.out.println();
+        
+        System.out.println("Now compare the new Leslie with the old Leslie in the array list. The old one should come first.\n" +
+        "Print out the age to show this. Here is the result: \n");
+        
+        if ( (retailCustomer3.compareAge(retailCustomer4) == 1)) {
+        	System.out.println("Leslie at age 27 comes second.\n");
+        } else if ( (retailCustomer3.compareAge(retailCustomer4) == -1)) {
+        	System.out.println("Leslie at age 27 comes first.\n");
+        } else  System.out.println("They are the same.");
+        
+        System.out.println("compareTo method demonstration ended... Thank you!");
 
     }
 }
