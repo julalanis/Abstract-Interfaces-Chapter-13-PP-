@@ -58,39 +58,25 @@ public class RetailCustomer extends Customer {
 
         @Override
         public int compareTo(Customer customer) {
-            // Print the names before comparison
-           /* System.out.println("Comparing names: '" + this.getName() + "' vs '" + customer.getName() + "'");*/
-
-            int nameComparison = super.compareName(customer);
-            /*if (nameComparison == 0) {
-                // If the names are the same, return 0 (no comparison needed)
-                System.out.println("Names are the same, no need to compare total spent .");
-                return 0;
-            }*/
-
-           /* System.out.println("Names are different, comparing total spent ...");*/
-
-            // Proceed with ticket price comparison
+        	
+        	//Name comparison since this overrides Customer
+            int nameComparison = this.getName().compareTo(customer.getName());
+            if (nameComparison != 0) {
+                return nameComparison; 
+            }
+        	
+            //Ticket price comparison
             if (customer instanceof RetailCustomer) {
             	RetailCustomer retailCustomer = (RetailCustomer) customer;
 
-                // Print ticket prices for debugging
-               /* System.out.println("Comparing total spent: " + this.totalSpent + " vs " + retailCustomer.getTotalSpent());*/
-
-                // Check if ticketPrice is greater
                 if (this.totalSpent > retailCustomer.getTotalSpent()) {
-                    /*System.out.println("Total spent is greater");*/
-                    return 1;  // Current customer has a higher ticket price
+                    return 1;  
                 } 
-                // Check if ticketPrice is less
                 else if (this.totalSpent < retailCustomer.getTotalSpent()) {
-                   /* System.out.println("Total spent is less");*/
-                    return -1;  // Current customer has a lower ticket price
+                    return -1; 
                 } 
-                // Check if ticketPrice is equal
                 else {
-                    /*System.out.println("Total spent is equal");*/
-                    return 0;  // Ticket prices are equal
+                	return Integer.compare(this.getAge(), retailCustomer.getAge());
                 }
             }
             System.out.println("These types of customers aren't the same");
