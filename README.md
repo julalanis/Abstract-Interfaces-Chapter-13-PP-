@@ -4,3 +4,4 @@ Alteration of Chapter 11 project with Flight and Retail customers. Adding abstra
 Will be implementing Compareable and compareTo methods and interfaces.
 
 11/30 Finished main bulk of project. Clean up and double checking against rubric required now.
+12/2 Updated compareTo methods in Customer and RetailCustomer, fixed logic of print statements in CustomerInfo.
