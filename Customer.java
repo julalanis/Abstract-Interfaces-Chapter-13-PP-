@@ -39,28 +39,23 @@ public abstract class Customer implements Comparable<Customer>{
     public abstract String importanceLevel();
     
     
-    //compareTo methods for Name and Age of customer
-    public int compareName(Customer customerName) {
-    	if ((this.name).equals(customerName.getName())) {
-    		return 0;
-    	}
-    	else return 1;
+    //compareTo method for name and age
+    public int compareTo(Customer customerName) {
+    	int comparison = this.name.compareTo(customerName.getName());
+        if (comparison != 0){
+        	return comparison;
+        } 
+        	comparison = Integer.compare(this.age, customerName.getAge());
+        	return comparison;
+
     }
-    	
-    public int compareAge(Customer customerAge) {
-    		if(this.age > (customerAge.getAge())) {
-    			return 1;
-    		} else if (this.age < (customerAge.getAge())) {
-    			return -1;
-    		} else return 0;
-    		
-    	}
 
     //toString method
     public String toString(){
         return "Customer name: " + name + "\n" +
                 "Customer age: " + age + "\n" +
                 "Customer importance level: " + importanceLevel();
+        		
     }
 
 }
