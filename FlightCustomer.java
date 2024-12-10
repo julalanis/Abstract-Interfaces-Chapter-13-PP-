@@ -69,44 +69,23 @@ public class FlightCustomer extends Customer {
                 "Customer ticket price: " + ticketPrice;
     }
     
+    //compareTo method for FlightCustomer that compares by ticketPrice
     @Override
     public int compareTo(Customer customer) {
-        // Print the names before comparison
-       /* System.out.println("Comparing names: '" + this.getName() + "' vs '" + customer.getName() + "'"); */
-
-        int nameComparison = super.compareName(customer);
-        /*if (nameComparison == 0) {
-            // If the names are the same, return 0 (no comparison needed)
-            System.out.println("Names are the same, no need to compare ticket prices.");
-            return 0;
-        }*/
-
-        /*System.out.println("Names are different, comparing ticket prices...");*/
-
         // Proceed with ticket price comparison
         if (customer instanceof FlightCustomer) {
             FlightCustomer flightCustomer = (FlightCustomer) customer;
 
-            // Print ticket prices for debugging
-           /* System.out.println("Comparing ticket prices: " + this.ticketPrice + " vs " + flightCustomer.getTicketPrice());*/
-
-            // Check if ticketPrice is greater
             if (this.ticketPrice > flightCustomer.getTicketPrice()) {
-               /* System.out.println("Ticket price is greater");*/
-                return 1;  // Current customer has a higher ticket price
+                return 1;  
             } 
-            // Check if ticketPrice is less
             else if (this.ticketPrice < flightCustomer.getTicketPrice()) {
-               /* System.out.println("Ticket price is less");*/
-                return -1;  // Current customer has a lower ticket price
+                return -1;  
             } 
-            // Check if ticketPrice is equal
             else {
-                /*System.out.println("Ticket price is equal");*/
-                return 0;  // Ticket prices are equal
+            	return 0;
             }
         }
-       /* System.out.println("These types of customers aren't the same");*/
         return 0;  // If customer isn't a FlightCustomer, return 0
     }
 
