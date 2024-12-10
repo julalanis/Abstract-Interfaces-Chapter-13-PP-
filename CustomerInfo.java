@@ -83,7 +83,7 @@ public class CustomerInfo {
         
         System.out.println("******************************************" + "\n");
         
-        System.out.println("Now create a new Retail Customer named Leslie, only with a different age: 29. Print out the new Retail Customer you just created.\n");
+        System.out.println("Now create a new Retail Customer named Leslie, only with a different age: 35. Print out the new Retail Customer you just created.\n");
         RetailCustomer retailCustomer4 = new RetailCustomer("Leslie", 35, 650.50, 4);
         customerList.add(retailCustomer4);
         
