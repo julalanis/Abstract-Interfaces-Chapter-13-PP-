@@ -55,7 +55,8 @@ public class RetailCustomer extends Customer {
                 "\nNumber of Items Purchased: " + getNumberOfItemsPurchased() + "\n" +
                 "Total Spent: " + getTotalSpent();
         }
-
+        
+        //compareTo method for RetailCustomer that compares by TotalSpent
         @Override
         public int compareTo(Customer customer) {
         	
@@ -80,7 +81,7 @@ public class RetailCustomer extends Customer {
                 }
             }
             System.out.println("These types of customers aren't the same");
-            return 0;  // If customer isn't a FlightCustomer, return 0
+            return 0;  // If customer isn't a RetailCustomer, return 0
         }
 
 }
